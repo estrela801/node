@@ -1,20 +1,21 @@
 const express = require('express')
 const { dirname } = require('path')
 const app = express()
+const handlebars = require('express-handlebars')
 
-app.get('/', (req,res)=>{
-    res.send('Deu certo')
-})
-app.get('/index', (req,res)=>{
-    res.sendFile(__dirname + '/html/index.html')
-})
-app.get('/eu', (req,res)=>{
-    res.send('Deu certo, eu sou gostoso')
-})
-app.get('/ola', (req,res)=>{
-    res.send('Deu certo, ola')
-})
+// Conexão coom obanco de dados 
+    const Sequelize = require('sequelize')
+    const sequelize = new Sequelize('cadastro', 'root', 'estrela801rodrigo187', {
+        host : 'localhost',
+        dialect : 'mysql'
+    })
+    // Configurando a template engine
+     app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+     app.set('view engine', 'handlebars')
 
+
+
+// Definindo porta de acesso
 app.listen(1112, ()=>{
     console.log('Foi');
     
