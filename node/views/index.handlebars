@@ -1,0 +1,9 @@
+<h1>Voce está na página principal</h1>
+
+
+{{#each post}} {{!- "IMPORTANDO" OS POSTS DO ARQUIVO INDEX.JS}}
+    <h2>{{titulo}}</h2> {{!- ACESSANDO TITULO DA POSTAGEM}}
+    <span>{{conteudo}}</span>  {{!- ACESSANDO CONTEUDO DA POSTAGEM}}
+    <a href="/deletar/{{id}}"> <button> deletar</button></a> {{!- CRIANDO CAMINHO PARA DELEÇÃO DE POST}}
+    <hr>
+{{/each}}
